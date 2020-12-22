@@ -1,0 +1,86 @@
+<ion-header no-border>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <div class="contenido">
+                <img src="/assets/avatars/buho.png" alt="" class="toolbarImage">
+            </div>
+        </ion-buttons>
+
+        <ion-buttons slot="end">
+            <ion-button color="primary" routerLink="/main/tabs/tab3">
+                <div class="contenido" *ngIf="valor">
+                    <img [src]="usuario.photoURL[0].url" *ngIf="perfil" alt="" class="toolbarImage circular">
+                    <img src="assets/avatars/av-1.png" *ngIf="!perfil" alt="" class="toolbarImage">
+                </div>
+            </ion-button>
+        </ion-buttons>
+
+        <ion-title color="primary" class="ion-text-center" routerLink="/main/tabs/tab6">
+            ESFOT NOTICIAS
+        </ion-title>
+    </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button size="default" routerLink="/main/tabs/tab1" color="success">
+                <ion-icon name="arrow-undo-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title color="primary" class="ion-text-center">
+            Problemas/Emergencias
+        </ion-title>
+    </ion-toolbar>
+
+    <ion-segment>
+        <ion-toolbar>
+            <ion-searchbar placeholder="Buscar publicación" animated debounce="700" [value]="textoBuscar" (ionChange)="buscar( $event )">
+
+            </ion-searchbar>
+        </ion-toolbar>
+    </ion-segment>
+
+    <ion-segment value="Todas">
+        <ion-segment-button mode="md" *ngFor="let tipo of tipos" [value]="tipo" (click)="EncabeadoCategoria(tipo)">
+            <ion-label text-capitalize>{{tipo}}</ion-label>
+        </ion-segment-button>
+    </ion-segment>
+
+</ion-header>
+
+<ion-content color="light">
+
+    <ion-refresher slot="fixed" (ionRefresh)="recargar( $event )">
+        <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
+
+    <ng-container *ngIf=" tabActual =='Todas'">
+        <ng-container *ngIf="pub">
+            <ng-container *ngIf="this.publicaciones.length!=0">
+                <app-posts [publicaciones]="publicaciones"></app-posts>
+            </ng-container>
+            <ng-container *ngIf="this.publicaciones.length==0">
+                <img src="assets/avatars/sinresultados.png" alt="">
+            </ng-container>
+        </ng-container>
+    </ng-container>
+    <ng-container *ngIf=" tabActual == 'Aceptadas'">
+        <ng-container *ngIf="pub">
+            <ng-container *ngIf="this.publicaciones.length!=0">
+                <app-solicitudes [publicaciones]="publicaciones"></app-solicitudes>
+            </ng-container>
+            <ng-container *ngIf="this.publicaciones.length==0">
+                <img src="assets/avatars/sinresultados.png" alt="">
+            </ng-container>
+        </ng-container>
+    </ng-container>
+    <ng-container *ngIf="tabActual == 'Rechazadas'">
+        <ng-container *ngIf="pub">
+            <ng-container *ngIf="this.publicaciones.length!=0">
+                <app-solicitudes [publicaciones]="publicaciones"></app-solicitudes>
+            </ng-container>
+            <ng-container *ngIf="this.publicaciones.length==0">
+                <img src="assets/avatars/sinresultados.png" alt="">
+            </ng-container>
+        </ng-container>
+    </ng-container>
+
+</ion-content>

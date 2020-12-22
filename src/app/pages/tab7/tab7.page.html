@@ -1,0 +1,157 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <div class="contenido">
+                <img src="/assets/avatars/buho.png" alt="" class="toolbarImage">
+            </div>
+        </ion-buttons>
+
+        <ion-buttons slot="end">
+            <ion-button color="primary" routerLink="/main/tabs/tab3">
+                <div class="contenido" *ngIf="valor">
+                    <img [src]="usuario.photoURL[0].url" *ngIf="perfil" alt="" class="toolbarImage circular">
+                    <img src="assets/avatars/av-1.png" *ngIf="!perfil" alt="" class="toolbarImage">
+                </div>
+            </ion-button>
+        </ion-buttons>
+        <ion-title color="primary" class="ion-text-center" routerLink="/main/tabs/tab6">
+            ESFOT NOTICIAS
+        </ion-title>
+    </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button size="default" routerLink="/main/tabs/tab1" color="success">
+                <ion-icon name="arrow-undo-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title color="primary" class="ion-text-center">
+            Publicación
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+    <ion-content>
+        <ng-container *ngIf="valor1">
+            <ng-container *ngIf="!existe">
+                <img src="assets/avatars/sinresultados.png" alt="">
+            </ng-container>
+            <ng-container *ngIf="existe">
+                <ion-card>
+                    <ng-container *ngIf="images != 0">
+                        <ion-slides pager="true">
+                            <ion-slide class="image-slide" *ngFor="let item of publicacion.imagenPost, let i=index">
+                                <ion-img [src]="item.url" *ngIf="item.url!=''"></ion-img>
+                            </ion-slide>
+                        </ion-slides>
+                    </ng-container>
+                    <ng-container *ngIf="images == 0">
+                        <div [ngSwitch]="publicacion.tipoPost">
+                            <ng-container *ngSwitchCase="'Noticias'">
+
+                                <img class="imgDeft" src="https://firebasestorage.googleapis.com/v0/b/noticias-esfot.appspot.com/o/default%2Fnoticia.png?alt=media&token=e9955796-7100-4636-8303-3cb539d53e38" alt="imagen">
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'Eventos'">
+
+                                <img class="imgDeft" src="https://firebasestorage.googleapis.com/v0/b/noticias-esfot.appspot.com/o/default%2Fevento.png?alt=media&token=1eb3fa46-f595-49e5-aa76-d6c862785ee1" alt="imagen">
+                            </ng-container>
+                            <ng-container *ngSwitchCase="'Solicitudes'">
+                                <ng-container [ngSwitch]="publicacion.categoriaPost">
+                                    <ng-container *ngSwitchCase="'Problema'">
+
+                                        <img class="imgDeft" src="https://firebasestorage.googleapis.com/v0/b/noticias-esfot.appspot.com/o/default%2Fproblema.png?alt=media&token=d8ad1649-39c3-4dbe-9779-813dbb06aa49" alt="imagen">
+                                    </ng-container>
+                                    <ng-container *ngSwitchCase="'Emergencia'">
+
+                                        <img class="imgDeft" src="https://firebasestorage.googleapis.com/v0/b/noticias-esfot.appspot.com/o/default%2Femergencia.png?alt=media&token=fe04a738-0f89-4388-bcde-3252cc79d188" alt="imagen">
+                                    </ng-container>
+                                </ng-container>
+                            </ng-container>
+                        </div>
+                    </ng-container>
+
+                    <ion-item lines="none">
+                        <ion-icon slot="start" name="eye-outline"></ion-icon>
+                        <ion-label slot="start">{{publicacion.viewsPost}}</ion-label>
+
+                    </ion-item>
+                    <ion-item>
+                        <ion-label>
+                            <h2>{{publicacion.tituloPost}}</h2>
+                            <h3>{{ publicacion.autorNamePost }}</h3>
+                            <h3>{{ publicacion.nameGroupPost }}/{{ publicacion.tipoPost }}/{{ publicacion.categoriaPost }}</h3>
+                            <h3>{{ publicacion.fechaPost|fechalast }}</h3>
+                            <ng-container *ngIf="publicacion.tipo=='Eventos'">
+                                <h3 *ngIf="publicacion.telPost">
+                                    <ion-icon name="call-outline"></ion-icon>{{publicacion.telPost}}</h3>
+                                <h3 *ngIf="publicacion.lugarPost!=''">
+                                    <ion-icon name="home-outline"></ion-icon>{{publicacion.lugarPost}}</h3>
+                                <div class="fechas">
+                                    <h3 *ngIf="publicacion.fechaInicioPost!=null">
+                                        <ion-icon name="today-outline"></ion-icon>{{publicacion.fechaInicioPost|viewtime}}</h3>
+                                    <h3 *ngIf="publicacion.fechaFinPost!=null">-{{publicacion.fechaFinPost|viewtime}}</h3>
+                                    <h3 *ngIf="publicacion.horainicioPost!=null">
+                                        <ion-icon name="time-outline"></ion-icon>{{publicacion.horainicioPost}}</h3>
+                                    <h3 *ngIf="publicacion.horafinPost!=null">-{{publicacion.horafinPost}}</h3>
+                                </div>
+                            </ng-container>
+                        </ion-label>
+                    </ion-item>
+                    <ion-item>
+                        <ion-label text-wrap>
+                            {{publicacion.descripcionPost}}
+                        </ion-label>
+                    </ion-item>
+                    <ng-container *ngIf="acceso=='come'">
+                        <ion-item>
+                            <ion-label color="success" text-wrap>
+                                Comentario sobre tu notificación:
+                            </ion-label>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label color="primary" text-wrap>
+                                Estado: {{publicacion.estadoPost}}
+                            </ion-label>
+                        </ion-item>
+                        <ion-item>
+                            <ion-label color="secondary" text-wrap>
+                                {{publicacion.comentarioPost}}
+                            </ion-label>
+                        </ion-item>
+                    </ng-container>
+                    <ng-container *ngIf="doc !=0">
+                        <div class="centrado">
+                            <div>
+                                <h3>Se pueden descargar los archivos adjuntos</h3>
+                            </div>
+                            <div>
+                                <ion-item>
+                                    <ion-button class="tamanio" size="default" *ngFor="let item of publicacion.docsPost, let i=index" (click)=" dowloadOpenPdf(item)">
+                                        <ion-icon name="document-text-outline" c></ion-icon>
+                                    </ion-button>
+                                </ion-item>
+                            </div>
+                        </div>
+                    </ng-container>
+                    <ng-container *ngIf="vid !=0">
+                        <div class="centrado">
+                            <div>
+                                <h3>Se pueden visualizar los archivos adjuntos</h3>
+                            </div>
+                            <div>
+                                <ion-button color="danger" *ngFor="let vid of publicacion.ytUrlPost, let i=index" (click)="watch(vid)">
+                                    <ion-icon name="logo-youtube"></ion-icon>
+                                </ion-button>
+                            </div>
+                        </div>
+                        <br>
+                    </ng-container>
+
+
+
+                </ion-card>
+            </ng-container>
+        </ng-container>
+    </ion-content>
+</ion-content>

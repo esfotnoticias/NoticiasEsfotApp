@@ -1,0 +1,119 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <div class="contenido">
+                    <img src="/assets/avatars/buho.png" alt="" class="toolbarImage">
+                </div>
+            </ion-buttons>
+
+            <ion-buttons slot="end">
+                <ion-button color="primary" routerLink="/main/tabs/tab3">
+                    <div class="contenido" *ngIf="valor">
+                        <img [src]="usuario.photoURL[0].url" *ngIf="perfil" alt="" class="toolbarImage circular">
+                        <img src="assets/avatars/av-1.png" *ngIf="!perfil" alt="" class="toolbarImage">
+                    </div>
+                </ion-button>
+            </ion-buttons>
+
+            <ion-title color="primary" class="ion-text-center" routerLink="/main/tabs/tab6">
+                ESFOT NOTICIAS
+            </ion-title>
+        </ion-toolbar>
+        <ion-toolbar>
+            <ion-buttons slot="start">
+                <ion-button size="default" routerLink="/main/tabs/tab1" color="success">
+                    <ion-icon name="arrow-undo-outline"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+            <ion-title color="primary">Escuela de Formación de Técnologos</ion-title>
+        </ion-toolbar>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <img src="assets/avatars/esfotpanoramica.jpg" alt="">
+    <mat-accordion>
+        <mat-expansion-panel hideToggle>
+            <mat-expansion-panel-header>
+                <mat-panel-title color="primary">
+                    Historia
+                </mat-panel-title>
+                <mat-panel-description>
+
+                </mat-panel-description>
+
+            </mat-expansion-panel-header>
+            <p>Los Tecnólogos de la Escuela Politécnica Nacional (EPN) tienen una historia que empieza en 1967. Nace como parte de la Facultad de Ingeniería Eléctrica, independizándose a través del entonces Centro de Cómputo, para luego en 1987, constituirse
+                en el Instituto de Tecnólogos; pasa más tarde llamarse Escuela de Formación de Tecnólogos, ESFOT como se la conoce desde 1990.</p>
+            <p>Durante este casi medio siglo ha formado a miles de profesionales tecnólogos en: Electrónica y Telecomunicaciones, Electromecánica, Computación, Construcciones Civiles, Procesos de Producción Mecánica, Mantenimiento Industrial y la más reciente
+                Agua y Saneamiento Ambiental.</p>
+            <p>Actualmente como en todas las Facultades de la EPN, su trabajo se circunscribe y adapta a los nuevos reglamentos, normativas y directrices que vienen desde los organismos de educación superior del estado y de los órganos colegiados de nuestra
+                institución.
+            </p>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Misión
+                </mat-panel-title>
+                <mat-panel-description>
+
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>
+                La Escuela de Formación de Tecnólogos (ESFOT) de la Escuela Politécnica Nacional tiene como misión preparar profesionales con una sólida formación académica, humanística, conceptual y práctica, cuya interacción con el medio social procure un aporte al
+                desarrollo tecnológico del país, para viabilizar el proceso de apropiación tecnológica y transferirlo al medio productivo cuidando siempre el ecosistema.</p>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Visión
+                </mat-panel-title>
+                <mat-panel-description>
+
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <p>
+                La Escuela de Formación de Tecnólogos al 2015 es una unidad académica de la Escuela Politécnica Nacional con autonomía académica y administrativa, líder en la formación de profesionales integrales; que opera con programas estructurados, apoyada por docentes
+                comprometidos, infraestructura equipada con tecnología de punta y estudiantes participativos que aportan a nuestro mejoramiento continuo. Cubre la demanda de profesionales y mantiene relaciones estratégicas con el sector productivo, entidades
+                nacionales e internacionales.</p>
+        </mat-expansion-panel>
+        <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Oferta Académica
+                </mat-panel-title>
+                <mat-panel-description>
+
+                </mat-panel-description>
+            </mat-expansion-panel-header>
+            <ion-list>
+                <ion-item>
+                    <ion-label>Agua y Saneamiento Ambiental</ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Análisis de Sistemas Informáticos</ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Electromecánica</ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Electrónica y Telecomunicaciones</ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Tecnología Superior en Agua y Saneamiento Ambiental</ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Tecnología Superior en Redes y Telecomunicaciones</ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Tecnología Superior en Desarrollo de Software</ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-label>Tecnología Superior en Electromecánica</ion-label>
+                </ion-item>
+            </ion-list>
+        </mat-expansion-panel>
+    </mat-accordion>
+</ion-content>

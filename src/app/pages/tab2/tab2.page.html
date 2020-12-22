@@ -1,0 +1,173 @@
+<ion-header no-border>
+    <ion-toolbar>
+
+        <ion-buttons slot="start">
+            <div class="contenido">
+                <img src="/assets/avatars/buho.png" alt="" class="toolbarImage">
+            </div>
+        </ion-buttons>
+
+
+        <ion-buttons slot="end">
+            <ion-button color="primary" routerLink="/main/tabs/tab3">
+                <div class="contenido" *ngIf="valor">
+                    <img [src]="usuario.photoURL[0].url" *ngIf="perfil" alt="" class="toolbarImage circular">
+                    <img src="assets/avatars/av-1.png" *ngIf="!perfil" alt="" class="toolbarImage">
+                </div>
+            </ion-button>
+        </ion-buttons>
+
+
+        <ion-title color="primary" class="ion-text-center" routerLink="/main/tabs/tab6">
+            ESFOT NOTICIAS
+        </ion-title>
+    </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button size="default" routerLink="/main/tabs/tab1" color="success">
+                <ion-icon name="arrow-undo-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title color="primary" class="ion-text-center">
+            Nueva Publicación
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+    <ng-container *ngIf="valor">
+        <ng-container *ngIf="!usuario.usuarioVerificado">
+            <ion-chip color="danger">
+                <ion-icon name="warning"></ion-icon>
+                <ion-label>Su cuenta debe ser verificada, este proceso se realiza en el sistema web</ion-label>
+            </ion-chip>
+            <img src="https://firebasestorage.googleapis.com/v0/b/noticias-esfot.appspot.com/o/default%2F.png?alt=media&token=b8ddcc27-d139-476e-bf40-7ee8094c277c" class="denegado" alt="">
+        </ng-container>
+        <ng-container *ngIf="usuario.usuarioVerificado">
+            <form [formGroup]="firstFormGroup" (ngSubmit)="onUpload(firstFormGroup)" #formone="ngForm">
+                <ion-grid fixed>
+                    <ion-row *ngIf="usuario">
+                        <ion-col>
+                            <ion-list class="lista1">
+                                <ion-item>
+                                    <ion-label position="floating">Grupos</ion-label>
+                                    <ion-select formControlName="nameGroupPost" cancelText="Cancelar" okText="Ok">
+                                        <ion-select-option [value]="i" *ngFor="let publi of publicar; let i=index">{{publi}}</ion-select-option>
+                                    </ion-select>
+                                </ion-item>
+                                <ion-item *ngIf="usuario.rol=='secretaria'">
+                                    <ion-label position="floating">Usuario</ion-label>
+                                    <ion-select formControlName="autorNamePost" cancelText="Cancelar" okText="Ok">
+                                        <ion-select-option [value]="perfil" *ngFor="let perfil of secretaria">{{perfil}}</ion-select-option>
+                                    </ion-select>
+                                </ion-item>
+
+                                <ion-item>
+                                    <ion-label position="floating">Tipo</ion-label>
+                                    <ion-select formControlName="tipoPost" cancelText="Cancelar" okText="Ok">
+                                        <ion-select-option value="Noticias">Noticias</ion-select-option>
+                                        <ion-select-option value="Eventos">Eventos</ion-select-option>
+                                        <ng-container *ngIf="usuario.rol=='secretaria' || usuario.rol=='aeesfot' || usuario.rol=='estudiante' || usuario.rol=='docente' ">
+                                            <ion-select-option value="Solicitudes">Solicitudes</ion-select-option>
+                                        </ng-container>
+                                    </ion-select>
+                                </ion-item>
+
+                                <ion-item *ngIf="seleccionTipoPostNoticia()">
+                                    <ion-label position="floating">Categoría</ion-label>
+                                    <ion-select formControlName="categoriaPost" cancelText="Cancelar" okText="Ok">
+                                        <ion-select-option value="Oferta laboral">Oferta laboral</ion-select-option>
+                                        <ion-select-option value="Oferta de pasantias">Oferta de pasantias</ion-select-option>
+                                        <ion-select-option value="Actividad académica">Actividad académica</ion-select-option>
+                                        <ion-select-option value="Actividad cultural">Actividad cultural</ion-select-option>
+                                        <ion-select-option value="Comunicados oficiales">Comunicados oficiales</ion-select-option>
+                                        <ion-select-option value="Otros">Otros</ion-select-option>
+                                    </ion-select>
+                                </ion-item>
+
+                                <ion-item *ngIf="seleccionTipoPostAnuncio()">
+                                    <ion-label position="floating">Categoría</ion-label>
+                                    <ion-select formControlName="categoriaPost" cancelText="Cancelar" okText="Ok">
+                                        <ion-select-option value="Problema">Problema</ion-select-option>
+                                        <ion-select-option value="Emergencia">Emergencia</ion-select-option>
+                                    </ion-select>
+                                </ion-item>
+
+                                <ion-item *ngIf="seleccionTipoPostEvento()">
+                                    <ion-label position="floating">Fecha inicio</ion-label>
+                                    <ion-datetime formControlName="fechaInicioPost" displayFormat="D MMM YYYY" min="1997" max="2025" value="2005-06-17T11:06Z"></ion-datetime>
+                                </ion-item>
+                                <ion-item *ngIf="seleccionTipoPostEvento()">
+                                    <ion-label position="floating">Fecha Fin</ion-label>
+                                    <ion-datetime formControlName="fechaFinPost" displayFormat="D MMM YYYY" min="1997" max="2025" value="2005-06-17T11:06Z"></ion-datetime>
+                                </ion-item>
+                                <ion-label color="danger" *ngIf="firstFormGroup.controls['fechaFinPost'].errors?.mayor">
+                                    La fecha final debe ser mayor o igual a la fecha inicial
+                                </ion-label>
+                                <ion-item *ngIf="seleccionTipoPostEvento()">
+                                    <ion-label position="floating">Telefono: </ion-label>
+                                    <ion-input formControlName="telPost" name="telefono1" type="text" #telefono1 maxlength="10"></ion-input>
+                                </ion-item>
+
+                                <ion-item *ngIf="seleccionCateoriaPostEmergencia()">
+                                    <ion-label position="floating">Telefono: </ion-label>
+                                    <ion-input formControlName="telPost" name="telefono1" type="text" maxlength="10" #telefono1></ion-input>
+                                </ion-item>
+                                <ion-label color="danger" *ngIf="firstFormGroup.controls['telPost'].errors?.pattern">
+                                    Ingrese un número valido
+                                </ion-label>
+                                <ion-item>
+                                    <ion-label position="floating">Título</ion-label>
+                                    <ion-input formControlName="tituloPost" name="titulo" #tituloNoticia type="text" maxlength="40" required></ion-input>
+                                </ion-item>
+                                <ion-item>
+                                    <ion-label position="floating">Descripción</ion-label>
+                                    <ion-textarea formControlName="descripcionPost" [(ngModel)]="descripcionPublicacion"></ion-textarea>
+                                </ion-item>
+
+                            </ion-list>
+                            <div class="lista1">
+
+                                <div class="centrar">
+                                    <ion-label color="primary">Solo puede subir 5 imagenes</ion-label>
+                                </div>
+                                <mat-error *ngIf="errorImagen">Máximo 5 imagenes</mat-error>
+                                <div>
+                                    <ion-row>
+                                        <ion-col size="6">
+                                            <ion-button expand="full" shape="round" (click)="camara()">
+                                                <ion-icon slot="start" name="camera"></ion-icon>
+                                                Cámara
+                                            </ion-button>
+                                        </ion-col>
+                                        <ion-col size="6">
+                                            <ion-button expand="full" shape="round" (click)="libreria()">
+                                                <ion-icon slot="start" name="images"></ion-icon>
+                                                Galería
+                                            </ion-button>
+                                        </ion-col>
+                                    </ion-row>
+
+                                    <ion-row>
+                                        <ion-col class="conjunto" size="3" *ngFor="let image of ImageSource,let i=index">
+                                            <button class="butt" (click)="eliminar(i)">
+                        <ion-icon name="close-circle-outline"></ion-icon>
+                                 </button>
+                                            <ion-card class="caja">
+                                                <img [src]="image" class="imagen" *ngIf="imagesval" alt="">
+                                            </ion-card>
+                                        </ion-col>
+                                    </ion-row>
+                                </div>
+                                <div class="lista1">
+                                    <ion-button expand="full" fill="solid" color="secondary" class="but" (click)="formone.ngSubmit.emit()">
+                                        <ion-icon name="save-outline"></ion-icon>Guardar Post</ion-button>
+                                </div>
+                            </div>
+                        </ion-col>
+                    </ion-row>
+                </ion-grid>
+            </form>
+        </ng-container>
+    </ng-container>
+</ion-content>

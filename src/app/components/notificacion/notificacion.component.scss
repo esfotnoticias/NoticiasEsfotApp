@@ -1,0 +1,32 @@
+.noti:hover {
+    background-color: #E9EAEE;
+    cursor: pointer;
+}
+
+.noticol {
+    display: flex;
+    flex-flow: column wrap;
+}
+
+.card-body {
+    display: flex;
+    flex-flow: row nowrap;
+    padding: 10px !important;
+}
+
+.mensaje {
+    margin-top: 5px;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-bottom: 3px;
+    font-size: 11px;
+}
+
+.image {
+    margin: 5px;
+    padding: 0;
+}
+
+.card-text {
+    margin-left: 5px;
+}

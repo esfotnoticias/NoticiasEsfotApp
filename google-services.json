@@ -1,0 +1,99 @@
+{
+  "project_info": {
+    "project_number": "327299033473",
+    "firebase_url": "https://noticias-esfot.firebaseio.com",
+    "project_id": "noticias-esfot",
+    "storage_bucket": "noticias-esfot.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:327299033473:android:aa265b254df6da62792080",
+        "android_client_info": {
+          "package_name": "com.epn.esfot"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "327299033473-humbe8gf1i99sgnbfrnotgrqalc9f3u7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.epn.esfot",
+            "certificate_hash": "334a7309048af69725cf6f23c1cc7967734f7184"
+          }
+        },
+        {
+          "client_id": "327299033473-erurbs41qhsjq68rnrqligl6bvpot6b0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAK1TuRhojxQcNgzIMsWHuZWTBrErap0FE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "327299033473-erurbs41qhsjq68rnrqligl6bvpot6b0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "327299033473-hseop06mvefolat5rlr1u57fcmejg5um.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.esfotnoticias"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:327299033473:android:e50035dbe186206a792080",
+        "android_client_info": {
+          "package_name": "com.esfotnoticias"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "327299033473-679naokid4omrriafeij57i6ub2pes99.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.esfotnoticias",
+            "certificate_hash": "a59bb147ab746710e2ddc40493d3437ca85ac948"
+          }
+        },
+        {
+          "client_id": "327299033473-erurbs41qhsjq68rnrqligl6bvpot6b0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAK1TuRhojxQcNgzIMsWHuZWTBrErap0FE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "327299033473-erurbs41qhsjq68rnrqligl6bvpot6b0.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "327299033473-hseop06mvefolat5rlr1u57fcmejg5um.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.esfotnoticias"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,139 @@
+<!-- <ion-header no-border>
+    <ion-toolbar>
+
+        <ion-buttons slot="start">
+            <ion-button color="primary" href="/main/tabs/tab1">
+                Regresar
+            </ion-button>
+        </ion-buttons>
+
+
+        <ion-title>
+            Publicacion
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+
+<ion-content>
+
+    <ion-card>
+
+        <ion-slides pager="true">
+
+            <ion-slide class="image-slide">
+                <ion-img src="https://firebasestorage.googleapis.com/v0/b/noticias-esfot.appspot.com/o/default%2Fevento.png?alt=media&token=1eb3fa46-f595-49e5-aa76-d6c862785ee1"></ion-img>
+            </ion-slide>
+
+            <ion-slide class="image-slide">
+                <ion-img src="https://firebasestorage.googleapis.com/v0/b/noticias-esfot.appspot.com/o/default%2Femergencia.png?alt=media&token=fe04a738-0f89-4388-bcde-3252cc79d188"></ion-img>
+            </ion-slide>
+
+            <ion-slide class="image-slide">
+                <ion-img src="https://firebasestorage.googleapis.com/v0/b/noticias-esfot.appspot.com/o/default%2Fnoticia.png?alt=media&token=e9955796-7100-4636-8303-3cb539d53e38"></ion-img>
+            </ion-slide>
+
+        </ion-slides>
+
+
+
+        <ion-item lines="none">
+            <ion-icon slot="start" name="eye-outline"></ion-icon>
+            <ion-label slot="start">{{publicacion.viewsPost}}</ion-label>
+            <ion-button slot="end">
+                <ion-icon name="share-social-outline"></ion-icon>
+            </ion-button>
+        </ion-item>
+
+        <ion-item>
+            <ion-label>
+
+                <h2 class="titulo">{{publicacion.tituloPost}}</h2><br><br>
+                <h3>{{publicacion.autorNamePost}}</h3>
+                <h3>{{publicacion.tipoPost}}</h3>
+                <h3>{{publicacion.categoriaPost}}</h3>
+            </ion-label>
+        </ion-item>
+
+        <ion-item lines="none">
+            <ion-label text-wrap>
+                {{publicacion.descripcionPost}}
+            </ion-label>
+        </ion-item>
+    </ion-card>
+
+</ion-content> -->
+<ng-container *ngIf="valor">
+    <ng-container *ngIf="existe">
+        <ion-header no-border>
+            <ion-toolbar>
+
+                <ion-buttons slot="start">
+                    <ion-button color="primary" href="/main/tabs/tab1">
+                        Regresar
+                    </ion-button>
+                </ion-buttons>
+
+
+                <ion-title>
+                    Publicacion
+                </ion-title>
+            </ion-toolbar>
+        </ion-header>
+
+
+
+        <ion-content>
+
+            <ion-card>
+
+                <ion-slides pager="true">
+
+                    <ion-slide class="image-slide">
+                        <ion-img src="https://firebasestorage.googleapis.com/v0/b/noticias-esfot.appspot.com/o/default%2Fevento.png?alt=media&token=1eb3fa46-f595-49e5-aa76-d6c862785ee1"></ion-img>
+                    </ion-slide>
+
+                    <ion-slide class="image-slide">
+                        <ion-img src="https://firebasestorage.googleapis.com/v0/b/noticias-esfot.appspot.com/o/default%2Femergencia.png?alt=media&token=fe04a738-0f89-4388-bcde-3252cc79d188"></ion-img>
+                    </ion-slide>
+
+                    <ion-slide class="image-slide">
+                        <ion-img src="https://firebasestorage.googleapis.com/v0/b/noticias-esfot.appspot.com/o/default%2Fnoticia.png?alt=media&token=e9955796-7100-4636-8303-3cb539d53e38"></ion-img>
+                    </ion-slide>
+
+                </ion-slides>
+
+
+
+                <ion-item lines="none">
+                    <ion-icon slot="start" name="eye-outline"></ion-icon>
+                    <ion-label slot="start">{{publicacion.viewsPost}}</ion-label>
+                    <ion-button slot="end">
+                        <ion-icon name="share-social-outline"></ion-icon>
+                    </ion-button>
+                </ion-item>
+
+                <ion-item>
+                    <ion-label>
+
+                        <h2 class="titulo">{{publicacion.tituloPost}}</h2><br><br>
+                        <h3>{{publicacion.autorNamePost}}</h3>
+                        <h3>{{publicacion.tipoPost}}</h3>
+                        <h3>{{publicacion.categoriaPost}}</h3>
+                    </ion-label>
+                </ion-item>
+
+                <ion-item lines="none">
+                    <ion-label text-wrap>
+                        {{publicacion.descripcionPost}}
+                    </ion-label>
+                </ion-item>
+            </ion-card>
+
+        </ion-content>
+    </ng-container>
+    <ng-container *ngIf="!existe">
+        <h1>no existe</h1>
+    </ng-container>
+</ng-container>

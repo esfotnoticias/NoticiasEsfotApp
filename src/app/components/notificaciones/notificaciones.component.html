@@ -1,0 +1,10 @@
+<div *ngIf="valor">
+    <ng-container *ngIf="!tamanio">
+        <app-notificacion [notificacion]="not" [user]="user" *ngFor="let not of notis, let i=index"></app-notificacion>
+    </ng-container>
+    <ng-container *ngIf="tamanio">
+        <img src="assets/avatars/notificacion.png" alt="">
+    </ng-container>
+    <!--  <app-notificacion [notificacion]="not" [user]="user" *ngFor="let not of notis, let i=index"></app-notificacion> -->
+
+</div>

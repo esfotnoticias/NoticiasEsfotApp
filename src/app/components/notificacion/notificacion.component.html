@@ -1,0 +1,95 @@
+<div *ngIf="valor">
+    <ng-container *ngIf="notificacion.acceso =='vis'">
+        <div class="card noti" (click)="solover()">
+            <div class="card-body">
+                <div class="image">
+                    <ion-avatar slot="start">
+                        <img [src]="notificacion.autorimagenNot" *ngIf="notificacion.autorimagenNot!=''" alt="prueba">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/noticias-esfot.appspot.com/o/default%2Fno_usuario.png?alt=media&token=6f8f0302-916a-47f3-979c-4ff762a4a759" *ngIf="notificacion.autorimagenNot==''" alt="prueba">
+                    </ion-avatar>
+                </div>
+                <div class="noticol">
+                    <p class="mensaje">{{notificacion.mensaje}}</p>
+                    <p class="card-text"><small class="text-muted">{{notificacion.notFechaP|fechalast}}</small></p>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="notificacion.acceso == 'mody'">
+        <div class="card noti" (click)="admin()">
+            <div class="card-body">
+                <div class="image">
+                    <ion-avatar slot="start">
+                        <img [src]="notificacion.autorimagenNot" *ngIf="notificacion.autorimagenNot!=''" alt="prueba">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/noticias-esfot.appspot.com/o/default%2Fno_usuario.png?alt=media&token=6f8f0302-916a-47f3-979c-4ff762a4a759" *ngIf="notificacion.autorimagenNot==''" alt="prueba">
+                    </ion-avatar>
+                </div>
+                <div class="noticol">
+                    <p class="mensaje">{{notificacion.mensaje}}</p>
+                    <p class="card-text"><small class="text-muted">{{notificacion.notFechaP|fechalast}}</small></p>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="notificacion.acceso =='group'">
+        <div class="card noti" (click)="grupos()">
+            <div class="card-body">
+                <div class="image">
+                    <ion-avatar slot="start">
+                        <img [src]="notificacion.autorimagenNot" *ngIf="notificacion.autorimagenNot!=''" alt="prueba">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/noticias-esfot.appspot.com/o/default%2Fno_usuario.png?alt=media&token=6f8f0302-916a-47f3-979c-4ff762a4a759" *ngIf="notificacion.autorimagenNot==''" alt="prueba">
+                    </ion-avatar>
+                </div>
+                <div class="noticol">
+                    <p class="mensaje">{{notificacion.mensaje}}</p>
+                    <p class="card-text"><small class="text-muted">{{notificacion.notFechaP|fechalast}}</small></p>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="notificacion.acceso =='come'">
+        <div class="card noti" (click)="comentario()">
+            <div class="card-body">
+                <div class="image">
+                    <ion-avatar slot="start">
+                        <img [src]="notificacion.autorimagenNot" *ngIf="notificacion.autorimagenNot!=''" alt="prueba">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/noticias-esfot.appspot.com/o/default%2Fno_usuario.png?alt=media&token=6f8f0302-916a-47f3-979c-4ff762a4a759" *ngIf="notificacion.autorimagenNot==''" alt="prueba">
+                    </ion-avatar>
+                </div>
+                <div class="noticol">
+                    <p class="mensaje">{{notificacion.mensaje}}</p>
+                    <p class="card-text"><small class="text-muted">{{notificacion.notFechaP|fechalast}}</small></p>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="notificacion.acceso == 'uservis'">
+        <div class="card noti" (click)="verper()">
+            <div class="card-body">
+                <div class="image">
+                    <img mat-card-avatar [src]="notificacion.autorimagenNot" *ngIf="notificacion.autorimagenNot!=''" alt="prueba">
+                    <img mat-card-avatar src="https://firebasestorage.googleapis.com/v0/b/noticias-esfot.appspot.com/o/default%2Fno_usuario.png?alt=media&token=6f8f0302-916a-47f3-979c-4ff762a4a759" *ngIf="notificacion.autorimagenNot==''" alt="prueba">
+                </div>
+                <div class="noticol">
+                    <p class="mensaje">{{notificacion.mensaje}}</p>
+                    <p class="card-text"><small class="text-muted">{{notificacion.notFechaP|fechalast}}</small></p>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+    <ng-container *ngIf="notificacion.acceso == 'userapr'">
+        <div class="card noti" (click)="admin()">
+            <div class="card-body">
+                <div class="image">
+                    <img mat-card-avatar [src]="notificacion.autorimagenNot" *ngIf="notificacion.autorimagenNot!=''" alt="prueba">
+                    <img mat-card-avatar src="https://firebasestorage.googleapis.com/v0/b/noticias-esfot.appspot.com/o/default%2Fno_usuario.png?alt=media&token=6f8f0302-916a-47f3-979c-4ff762a4a759" *ngIf="notificacion.autorimagenNot==''" alt="prueba">
+                </div>
+                <div class="noticol">
+                    <p class="mensaje">{{notificacion.mensaje}}</p>
+                    <p class="card-text"><small class="text-muted">{{notificacion.notFechaP|fechalast}}</small></p>
+                </div>
+            </div>
+        </div>
+    </ng-container>
+
+    <div>

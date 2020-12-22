@@ -1,0 +1,49 @@
+.toolbarImage {
+    width: 30px;
+    height: 30px;
+}
+
+.contenido {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+h3 {
+    margin-bottom: 5px;
+}
+
+h2 {
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.centrado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column nowrap;
+}
+
+.tamanio {
+    font-size: large;
+}
+
+.circular {
+    border-radius: 50%;
+}
+
+.fechas {
+    display: flex;
+    flex-flow: row wrap;
+}
+
+.regresar {
+    margin-left: 10px;
+}
+
+.imgDeft {
+    width: 100%;
+    padding: 5px;
+    height: 200px;
+}

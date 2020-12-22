@@ -1,0 +1,36 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <div class="contenido">
+                <img src="/assets/avatars/buho.png" alt="" class="toolbarImage">
+            </div>
+        </ion-buttons>
+
+        <ion-buttons slot="end">
+            <ion-button color="primary" routerLink="/main/tabs/tab3">
+                <div class="contenido" *ngIf="valor">
+                    <img [src]="usuario.photoURL[0].url" *ngIf="perfil" alt="" class="toolbarImage circular">
+                    <img src="assets/avatars/av-1.png" *ngIf="!perfil" alt="" class="toolbarImage">
+                </div>
+            </ion-button>
+        </ion-buttons>
+
+        <ion-title color="primary" class="ion-text-center" routerLink="/main/tabs/tab6">
+            ESFOT NOTICIAS
+        </ion-title>
+    </ion-toolbar>
+    <ion-toolbar>
+        <ion-buttons slot="start">
+            <ion-button size="default" routerLink="/main/tabs/tab1" color="success">
+                <ion-icon name="arrow-undo-outline"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title color="primary" class="ion-text-center">
+            Notificaciones
+        </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <app-notificaciones></app-notificaciones>
+</ion-content>

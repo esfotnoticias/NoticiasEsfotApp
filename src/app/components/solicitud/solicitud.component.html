@@ -1,0 +1,58 @@
+<div class="post">
+    <div class="partesuperior">
+        <div class="titu">
+            <h2 class="titulo">{{ publicacion.tituloPost }}</h2>
+        </div>
+        <div class="vistas">
+            <ion-label class="visualizaciones ">
+
+                <ion-icon name="eye-outline"></ion-icon>{{publicacion.viewsPost}}</ion-label>
+        </div>
+    </div>
+    <ion-item lines="none">
+
+        <ion-avatar slot="start">
+            <img mat-card-avatar [src]="publicacion.autorImagenPost" *ngIf="publicacion.autorImagenPost!=''" alt="prueba">
+            <img src="/assets/avatars/av-1.png" *ngIf="publicacion.autorImagenPost==''">
+        </ion-avatar>
+        <ion-label>
+            <h3>{{ publicacion.autorNamePost }}</h3>
+            <h3>{{ publicacion.nameGroupPost }}/{{ publicacion.tipoPost }}/{{ publicacion.categoriaPost }}</h3>
+            <h3>{{ publicacion.fechaPost|fechalast }}</h3>
+        </ion-label>
+
+    </ion-item>
+    <ng-container>
+        <div [ngSwitch]="publicacion.tipoPost">
+            <ng-container *ngSwitchCase="'Noticias'">
+                <img [src]="publicacion.imagenPost[0].url" height="50" class="imagen" *ngIf="imagenes" alt="Photo">
+                <img src="https://firebasestorage.googleapis.com/v0/b/noticias-esfot.appspot.com/o/default%2Fnoticia.png?alt=media&token=e9955796-7100-4636-8303-3cb539d53e38" class="imagen" alt="imagen" *ngIf="!imagenes">
+            </ng-container>
+            <ng-container *ngSwitchCase="'Eventos'">
+                <img [src]="publicacion.imagenPost[0].url" *ngIf="imagenes" alt="Photo" class="imagen">
+                <img src="https://firebasestorage.googleapis.com/v0/b/noticias-esfot.appspot.com/o/default%2Fevento.png?alt=media&token=1eb3fa46-f595-49e5-aa76-d6c862785ee1" class="imagen" alt="imagen" *ngIf="!imagenes">
+            </ng-container>
+            <ng-container *ngSwitchCase="'Solicitudes'">
+                <ng-container [ngSwitch]="publicacion.categoriaPost">
+                    <ng-container *ngSwitchCase="'Problema'">
+                        <img [src]="publicacion.imagenPost[0].url" *ngIf="imagenes" alt="Photo" class="imagen">
+                        <img class="card-img tarjeta" src="https://firebasestorage.googleapis.com/v0/b/noticias-esfot.appspot.com/o/default%2Fproblema.png?alt=media&token=d8ad1649-39c3-4dbe-9779-813dbb06aa49" class="imagen" alt="imagen" *ngIf="!imagenes">
+                    </ng-container>
+                    <ng-container *ngSwitchCase="'Emergencia'">
+                        <img [src]="publicacion.imagenPost[0].url" *ngIf="imagenes" alt="Photo" class="imagen">
+                        <img src="https://firebasestorage.googleapis.com/v0/b/noticias-esfot.appspot.com/o/default%2Femergencia.png?alt=media&token=fe04a738-0f89-4388-bcde-3252cc79d188" class="imagen" alt="imagen" *ngIf="!imagenes">
+                    </ng-container>
+                </ng-container>
+            </ng-container>
+        </div>
+    </ng-container>
+    <ion-item lines="none">
+        <ion-label text-wrap class="texto">
+            {{ publicacion.descripcionPost|textoPortada }}
+        </ion-label>
+    </ion-item>
+    <ion-button shape="round" expand="full" size="small" fill="solid" color="tertiary" (click)="navegar()">
+        Ver mas
+    </ion-button>
+
+</div>

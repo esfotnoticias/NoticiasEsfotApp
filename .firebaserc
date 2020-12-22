@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "noticias-esfot": {
+      "hosting": {
+        "app": [
+          "noticias-esfot"
+        ]
+      }
+    }
+  }
+}

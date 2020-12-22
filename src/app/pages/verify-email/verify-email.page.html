@@ -1,0 +1,24 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>Verificación </ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="user$ | async as user">
+    <ion-row>
+        <ion-col>
+            <h2>Gracias por Registrarte a ESFOT NOTICIAS!</h2>
+            <p> Por favor revisa tu bandeja de entrada se envio un correo con un link para verificar tu correo electronico <strong>{{user.email}}</strong></p>
+            <p>una vez verificado su correo electronico presione regresar al inicio para ingresar al sistema web.</p>
+        </ion-col>
+    </ion-row>
+
+    <ion-row>
+        <ion-col>
+            <ion-button type="submit" color="primary" expand="block" (click)="onSendEmail()">Reenviar email</ion-button>
+        </ion-col>
+        <ion-col>
+            <ion-button type="submit" color="primary" expand="block" (click)="regresar()">Regresar</ion-button>
+        </ion-col>
+    </ion-row>
+</ion-content>

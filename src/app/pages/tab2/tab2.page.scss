@@ -1,0 +1,70 @@
+.butt {
+    border-radius: 100%;
+    font-size: 20px;
+    width: 20px;
+    height: 20px;
+    /*background: white;*/
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    //bottom: 155px;
+    top: 20px;
+    left: 50px;
+    padding: 0;
+    margin: 0;
+    z-index: 50;
+}
+
+.conjunto {
+    display: flex;
+    flex-flow: row wrap;
+    padding-left: 0px;
+}
+
+.imagen {
+    width: 50px;
+    height: 75px;
+}
+
+.caja {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+}
+
+.fondoslice1 {
+    padding: 0;
+    margin: 0;
+}
+
+.lista1 {
+    width: 100%;
+}
+
+.tamanio {
+    display: flex;
+    width: 100%;
+}
+
+.but {
+    display: flex;
+    width: 100%;
+}
+
+.toolbarImage {
+    width: 30px;
+    height: 30px;
+}
+
+.contenido {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circular {
+    border-radius: 50%;
+}

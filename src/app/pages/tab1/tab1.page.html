@@ -1,0 +1,135 @@
+<ion-header no-border>
+    <ion-toolbar>
+
+        <ion-buttons slot="start">
+            <div class="contenido">
+                <img src="/assets/avatars/buho.png" alt="" class="toolbarImage">
+            </div>
+
+        </ion-buttons>
+
+        <ion-buttons slot="end">
+            <ion-button color="primary" routerLink="/main/tabs/tab3">
+
+                <div class="contenido" *ngIf="valor">
+                    <img [src]="usuario.photoURL[0].url" *ngIf="perfil" alt="" class="toolbarImage circular">
+                    <img src="assets/avatars/av-1.png" *ngIf="!perfil" alt="" class="toolbarImage">
+                </div>
+            </ion-button>
+        </ion-buttons>
+
+        <ion-title color="primary" class="ion-text-center" routerLink="/main/tabs/tab6">
+            ESFOT NOTICIAS
+        </ion-title>
+    </ion-toolbar>
+
+    <ion-segment>
+        <ion-toolbar>
+            <ion-searchbar placeholder="Buscar publicación" animated debounce="700" [value]="textoBuscar" (ionChange)="buscar( $event )">
+
+            </ion-searchbar>
+            <ion-item>
+                <ion-label>Categoría</ion-label>
+                <ion-select [(ngModel)]="categ" (ionChange)="selectCar()" cancelText="Cancelar" okText="Ok">
+                    <ion-select-option value="Todos">Todos</ion-select-option>
+                    <ion-select-option value="Oferta laboral">Oferta laboral</ion-select-option>
+                    <ion-select-option value="Oferta de pasantias">Oferta de pasantias</ion-select-option>
+                    <ion-select-option value="Actividad academica">Actividad académica</ion-select-option>
+                    <ion-select-option value="Actividad cultural">Actividad cultural</ion-select-option>
+                    <ion-select-option value="Comunicados oficiales">Comunicados oficiales</ion-select-option>
+                    <ion-select-option value="Eventos">Eventos</ion-select-option>
+                    <ion-select-option value="Otros">Otros</ion-select-option>
+                </ion-select>
+            </ion-item>
+        </ion-toolbar>
+
+    </ion-segment>
+</ion-header>
+
+<ion-content color="light">
+
+
+    <ng-container>
+        <ion-refresher slot="fixed" (ionRefresh)="recargar( $event )">
+            <ion-refresher-content></ion-refresher-content>
+        </ion-refresher>
+    </ng-container>
+    <ng-container *ngIf="!cargando">
+        <div *ngIf="!data">
+            <div class="ion-padding custom-skeleton">
+                <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                <ion-skeleton-text animated></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 88%"></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+                <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+            </div>
+
+            <ion-list>
+                <ion-list-header>
+                    <ion-label>
+                        <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+                    </ion-label>
+                </ion-list-header>
+                <ion-item>
+                    <ion-avatar slot="start">
+                        <ion-skeleton-text animated></ion-skeleton-text>
+                    </ion-avatar>
+                    <ion-label>
+                        <h3>
+                            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                        </h3>
+                        <p>
+                            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+                        </p>
+                        <p>
+                            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                        </p>
+                    </ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-thumbnail slot="start">
+                        <ion-skeleton-text animated></ion-skeleton-text>
+                    </ion-thumbnail>
+                    <ion-label>
+                        <h3>
+                            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                        </h3>
+                        <p>
+                            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+                        </p>
+                        <p>
+                            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                        </p>
+                    </ion-label>
+                </ion-item>
+                <ion-item>
+                    <ion-skeleton-text animated style="width: 27px; height: 27px" slot="start"></ion-skeleton-text>
+                    <ion-label>
+                        <h3>
+                            <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                        </h3>
+                        <p>
+                            <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+                        </p>
+                        <p>
+                            <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                        </p>
+                    </ion-label>
+                </ion-item>
+            </ion-list>
+        </div>
+    </ng-container>
+
+    <ng-container *ngIf="cargando">
+        <ng-container class="valor">
+            <ng-container *ngIf="this.publicaciones.length!=0">
+                <app-posts [publicaciones]="publicaciones"></app-posts>
+            </ng-container>
+            <ng-container *ngIf="this.publicaciones.length==0">
+                <img src="assets/avatars/sinresultados.png" alt="">
+            </ng-container>
+
+        </ng-container>
+    </ng-container>
+
+</ion-content>

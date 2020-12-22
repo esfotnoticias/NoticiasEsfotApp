@@ -1,0 +1,72 @@
+table {
+    width: 100%;
+    font-size: 11px !important;
+}
+
+.mat-form-field {
+    font-size: 12px;
+    width: 100%;
+}
+
+.mat-column-apellido {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 25% !important;
+    width: 25% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.mat-column-email {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 60% !important;
+    width: 60% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.mat-column-actions {
+    word-wrap: break-word !important;
+    white-space: unset !important;
+    flex: 0 0 15% !important;
+    width: 15% !important;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+}
+
+.centrar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toolbarImage {
+    width: 30px;
+    height: 30px;
+}
+
+.contenido {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.circular {
+    border-radius: 50%;
+}
