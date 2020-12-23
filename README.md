@@ -2,7 +2,7 @@
 
 ## Documentación
 
-En los enlaces se encuentra la respectiva documentación del Sistema Web Esfot Noticias
+En los enlaces se encuentra la respectiva documentación de la Aplicación Móvil  Esfot Noticias
 
 ## Informe Técnico
 https://github.com/esfotnoticias/NoticiasEsfotApp/blob/master/Documentos/Informe-T%C3%A9cnico-Casafallo-Maiza.docx
